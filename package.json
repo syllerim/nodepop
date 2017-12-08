@@ -4,6 +4,7 @@
   "description": "Backend Software that support the API service for an application that sell second hand products.",
   "main": "index.js",
   "scripts": {
+    "start": "node ./src/bin/www",
     "test": "mocha"
   },
   "author": "Mirellys Arteta Davila - mirellys710@gmail.com",
