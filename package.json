@@ -4,7 +4,8 @@
   "description": "Backend Software that support the API service for an application that sell second hand products.",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/bin/www",
+    "start": "cross-env node ./src/bin/www",
+    "prod": "cross-env PORT=8000 NODE_ENV=production DATABASE_URL=mongodb://root:root@localhost:3000/nodepop ./src/bin/www",
     "test": "mocha",
     "lint": "eslint"
   },
@@ -12,9 +13,14 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.1.2",
+    "cross-env": "^5.1.1",
     "eslint": "^4.12.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "mocha": "^4.0.1"
+  },
+  "dependencies": {
+    "mongoose": "^4.13.7",
+    "parse-database-url": "^0.3.0"
   }
 }
