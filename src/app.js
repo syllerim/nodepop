@@ -1,10 +1,12 @@
-const express = require('express');
 const path = require('path');
+
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
+
+const express = require('express');
 // const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-
 const index = require('./routes/index');
 const users = require('./routes/users');
 

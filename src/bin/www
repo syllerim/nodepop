@@ -3,7 +3,6 @@
 /**
  * Module dependencies.
  */
-
 const app = require('../app');
 const debug = require('debug')('src:server');
 const http = require('http');
@@ -11,13 +10,6 @@ const configs = require('../configs');
 
 // Get port from environment and store in Express.
 app.set('port', configs.http.port);
-
-/**
- * Get port from environment and store in Express.
- */
-
-// const port = normalizePort(process.env.PORT || '3000');
-// app.set('port', port);
 
 /**
  * Create HTTP server.
