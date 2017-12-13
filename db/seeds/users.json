@@ -1,0 +1,14 @@
+{
+    "users": [
+        {                                                                   
+            "name": "Pedro",
+            "email": "pedro@gmail.com",
+            "key": "Salamander!1"
+        },
+        {
+            "name": "Sabrina",
+            "email": "sabrina@gmail.com",
+            "key": "Salamander!2"
+        }
+    ]
+}

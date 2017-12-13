@@ -1,0 +1,18 @@
+{
+    "items": [
+        {                                                                   
+            "name": "Bicicleta",
+            "forSell": true,
+            "price": 230.15,
+            "imagePath": "images/anuncios/bici.jpg",        
+            "tags": [ "lifestyle", "motor" ]
+        },
+        {
+            "name": "iPhone 3GS",
+            "forSell": false,
+            "price": 50.00,
+            "imagePath": "images/anuncios/iphone.png",    
+            "tags": [ "lifestyle", "mobile" ]
+        }
+    ]
+}
