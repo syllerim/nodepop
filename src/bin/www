@@ -11,6 +11,9 @@ const configs = require('../configs');
 // Get port from environment and store in Express.
 app.set('port', configs.http.port);
 
+// Require db mongoose connection
+require('../../db/connectMongoose');
+
 /**
  * Create HTTP server.
  */

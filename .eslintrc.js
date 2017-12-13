@@ -6,7 +6,9 @@ module.exports = {
         "strict": 0,
         "import/no-dynamic-require": 0,
         "comma-dangle": 0,
-        "import/no-extraneous-dependencies": 0
+        "import/no-extraneous-dependencies": 0,
+        "no-restricted-syntax": 0,
+        "no-plusplus": 0
     },
     "env": {
         "node": true,
