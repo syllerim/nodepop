@@ -2,6 +2,11 @@
 
 const mongoose = require('mongoose');
 
+const tagsEnum = {
+  values: ['work', 'lifestyle', 'motor', 'mobile'],
+  message: '{PATH} is not a valid enum value for path {VALUE}.'
+};
+
 const itemSchema = mongoose.Schema({
   name: {
     type: String,
@@ -24,9 +29,19 @@ const itemSchema = mongoose.Schema({
     trim: true
   },
   tags: {
-    type: [String],
+    type: [
+      {
+        type: String,
+        enum: tagsEnum,
+        required: true,
+        index: true
+      }
+    ],
     unique: false,
-    required: true
+    required: true,
+    validate: (items) => {
+      items.length > 0;
+    }
   }
 });
 

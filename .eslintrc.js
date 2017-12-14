@@ -8,7 +8,9 @@ module.exports = {
         "comma-dangle": 0,
         "import/no-extraneous-dependencies": 0,
         "no-restricted-syntax": 0,
-        "no-plusplus": 0
+        "no-plusplus": 0,
+        "no-unused-expressions": 0,
+        "array-callback-return": 0
     },
     "env": {
         "node": true,

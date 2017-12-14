@@ -6,7 +6,8 @@
   "scripts": {
     "start": "cross-env node ./src/bin/www",
     "prod": "cross-env PORT=3000 NODE_ENV=production DATABASE_URL=mongodb://root:root@localhost:8889/nodepop ./src/bin/www",
-    "test": "cross-env PORT=3000 NODE_ENV=testing ./src/bin/www",
+    "install-db": "cross-env NODE_ENV=seeding ./src/bin/www",
+    "test": "mocha",
     "lint": "eslint"
   },
   "author": "Mirellys Arteta Davila - mirellys710@gmail.com",
@@ -17,7 +18,8 @@
     "eslint": "^4.12.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "mocha": "^4.0.1"
+    "mocha": "^4.0.1",
+    "sinon": "^4.1.3"
   },
   "dependencies": {
     "chalk": "^2.3.0",

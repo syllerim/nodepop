@@ -11,7 +11,11 @@ const userSchema = mongoose.Schema({
   email: {
     type: String,
     unique: true,
-    required: true
+    required: true,
+    validate: (v) => {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(v);
+    }
   },
   key: {
     type: String,
