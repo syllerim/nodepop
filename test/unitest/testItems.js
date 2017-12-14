@@ -1,6 +1,6 @@
 const chai = require('chai');
 
-const Item = require('./../src/models/item');
+const Item = require('./../../src/models/item');
 
 /**
  * Testing model validations
