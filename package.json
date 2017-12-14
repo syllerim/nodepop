@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env node ./src/bin/www",
-    "prod": "cross-env PORT=8000 NODE_ENV=production DATABASE_URL=mongodb://root:root@localhost:3000/nodepop ./src/bin/www",
-    "test": "mocha",
+    "prod": "cross-env PORT=3000 NODE_ENV=production DATABASE_URL=mongodb://root:root@localhost:8889/nodepop ./src/bin/www",
+    "test": "cross-env PORT=3000 NODE_ENV=testing ./src/bin/www",
     "lint": "eslint"
   },
   "author": "Mirellys Arteta Davila - mirellys710@gmail.com",
