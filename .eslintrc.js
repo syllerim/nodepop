@@ -13,7 +13,9 @@ module.exports = {
         "array-callback-return": 0,
         "radix": 0,
         "no-use-before-define" : 0,
-        "prefer-destructuring" : 0
+        "prefer-destructuring" : 0,
+        "no-param-reassign": 0,
+        "no-undef" : 0
     },
     "env": {
         "node": true,
