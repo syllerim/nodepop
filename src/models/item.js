@@ -51,4 +51,14 @@ itemSchema.index({
 
 const Item = mongoose.model('Item', itemSchema);
 
+// Static Method to return items
+itemSchema.statics.list = (filters, limit, skip, sort, fields) => {
+  const query = Item.find(filters);
+  query.limit(limit);
+  query.skip(skip);
+  query.sort(sort);
+  query.select(fields);
+  return query.exec();
+};
+
 module.exports = Item;
