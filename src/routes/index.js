@@ -6,7 +6,7 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res) => {
-  res.render('index', { title: 'Practica 1 Node JS Bootcamp Mobile VI.' });
+  res.render('index', { title: '👍🏿.' });
 });
 
 module.exports = router;

@@ -10,7 +10,10 @@ module.exports = {
         "no-restricted-syntax": 0,
         "no-plusplus": 0,
         "no-unused-expressions": 0,
-        "array-callback-return": 0
+        "array-callback-return": 0,
+        "radix": 0,
+        "no-use-before-define" : 0,
+        "prefer-destructuring" : 0
     },
     "env": {
         "node": true,
