@@ -38,8 +38,8 @@ describe('Test Insert in Mongoose Database', () => {
 });
 
 describe('Test  Retrieve data with Mongoose', () => {
-  it('Item Retrieve', (done) => { // query.where('tags').in(new Array(filters.tags));
-    Item.find({ tags: { $all: ['mobile'] } }, (err, name) => {
+  it('Item Retrieve', (done) => {
+    Item.find({ tags: { $all: ['mobile'] }, forSell: false }, (err, name) => {
       if (err) { throw err; }
       if (name.length === 0) { throw new Error('No data!'); }
       done();

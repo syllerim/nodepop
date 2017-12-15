@@ -7,8 +7,9 @@ const Item = require('./../../models/item');
 
 router.get('/', async (req, res, next) => {
   try {
-    const tag = req.query.tag;
     const name = req.query.name;
+    const tag = req.query.tag;
+    const forSell = req.query.venta;
     const limit = parseInt(req.query.limit);
     const skip = parseInt(req.query.skip);
     const sort = req.query.sort;
@@ -24,6 +25,10 @@ router.get('/', async (req, res, next) => {
 
     if (tag) {
       filter.tags = { $all: [tag] };
+    }
+
+    if (forSell) {
+      filter.forSell = forSell;
     }
 
     const rows = await Item.list(filter, limit, skip, sort, fields);
