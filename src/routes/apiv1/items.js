@@ -64,4 +64,13 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+router.get('/tags', async (req, res, next) => {
+  try {
+    const rows = await Item.listTags();
+    res.json({ items: rows });
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;

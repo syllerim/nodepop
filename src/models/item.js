@@ -56,7 +56,7 @@ itemSchema.index({
 });
 
 
-// Static Method to return items
+// Static methods for items
 itemSchema.statics.list = (filters, skip, limit, sort, fields) => {
   const query = Item.find(filters);
   query.skip(skip);
@@ -66,10 +66,11 @@ itemSchema.statics.list = (filters, skip, limit, sort, fields) => {
   return query.exec();
 };
 
-itemSchema.statics.totalItems = (filters) => {
-  const query = Item.find(filters).count();
-  return query.exec();
-};
+// Return Total Items for a query
+itemSchema.statics.totalItems = filters => Item.find(filters).count().exec();
+
+// Return the distinct tags with values on items.
+itemSchema.statics.listTags = () => Item.distinct('tags').exec();
 
 const Item = mongoose.model('Item', itemSchema);
 
