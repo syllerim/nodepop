@@ -7,7 +7,7 @@ const Item = require('./../../models/item');
 
 router.get('/', async (req, res, next) => {
   try {
-    const name = req.query.name;
+    const name = req.query.nombre;
     const tag = req.query.tag;
     const forSell = req.query.venta;
     const limit = parseInt(req.query.limit);
@@ -20,7 +20,7 @@ router.get('/', async (req, res, next) => {
 
     // Add the filter parameters
     if (name) {
-      filter.name = name;
+      filter.name = { $regex: name, $options: 'i' };
     }
 
     if (tag) {

@@ -39,7 +39,7 @@ describe('Test Insert in Mongoose Database', () => {
 
 describe('Test  Retrieve data with Mongoose', () => {
   it('Item Retrieve', (done) => {
-    Item.find({ tags: { $all: ['mobile'] }, forSell: false }, (err, name) => {
+    Item.find({ name: { $regex: 'pad', $options: 'i' }, tags: { $all: ['mobile'] }, forSell: false }, (err, name) => {
       if (err) { throw err; }
       if (name.length === 0) { throw new Error('No data!'); }
       done();
