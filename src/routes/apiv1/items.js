@@ -10,6 +10,7 @@ router.get('/', async (req, res, next) => {
     const name = req.query.nombre;
     const tag = req.query.tag;
     const forSell = req.query.venta;
+    const price = req.query.precio;
     const limit = parseInt(req.query.limit);
     const skip = parseInt(req.query.skip);
     const sort = req.query.sort;
@@ -29,6 +30,23 @@ router.get('/', async (req, res, next) => {
 
     if (forSell) {
       filter.forSell = forSell;
+    }
+
+    if (price) {
+      const hyphenPosition = price.indexOf('-');
+      if (hyphenPosition === -1) {
+        filter.price = price;
+      } else if (hyphenPosition === 0) {
+        const maxPrice = price.substring(1, price.length - 1);
+        filter.price = { $lt: maxPrice };
+      } else if (hyphenPosition === price.length - 1) {
+        const minPrice = price.substring(0, price.length - 2);
+        filter.price = { $gt: minPrice };
+      } else {
+        const minPrice = price.substring(0, hyphenPosition);
+        const maxPrice = price.substring(hyphenPosition + 1, price.length);
+        filter.price = { $gt: minPrice, $lt: maxPrice };
+      }
     }
 
     const rows = await Item.list(filter, limit, skip, sort, fields);
