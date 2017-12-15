@@ -11,9 +11,10 @@ router.get('/', async (req, res, next) => {
     const tag = req.query.tag;
     const forSell = req.query.venta;
     const price = req.query.precio;
+    const start = parseInt(req.query.start);
     const limit = parseInt(req.query.limit);
-    const skip = parseInt(req.query.skip);
     const sort = req.query.sort;
+    const includeTotal = req.query.includeTotal;
     const fields = req.query.fields;
 
     // Create empty filter
@@ -49,8 +50,15 @@ router.get('/', async (req, res, next) => {
       }
     }
 
-    const rows = await Item.list(filter, limit, skip, sort, fields);
-    res.json({ items: rows });
+    const rows = await Item.list(filter, start, limit, sort, fields);
+    let totalItems = 0;
+
+    if (includeTotal) {
+      totalItems = await Item.totalItems(filter);
+      res.json({ items: rows, totalItems });
+    } else {
+      res.json({ items: rows });
+    }
   } catch (err) {
     next(err);
   }
