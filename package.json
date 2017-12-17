@@ -12,7 +12,7 @@
     "prod": "cross-env PORT=443 NODE_ENV=production DATABASE_URL=mongodb://root:root@localhost:8889/nodepop ./src/bin/www",
     "install-db": "cross-env PORT=443 NODE_ENV=seeding ./src/bin/www",
     "test": "mocha",
-    "lint": "eslint"
+    "lint": "./node_modules/.bin/eslint"
   },
   "author": "Mirellys Arteta Davila - mirellys710@gmail.com",
   "license": "MIT",
