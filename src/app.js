@@ -10,8 +10,20 @@ const bodyParser = require('body-parser');
 const index = require('./routes/index');
 const configs = require('./configs');
 const errors = require('./middlewares/errors');
+const i18n = require('i18n');
 
 const app = express();
+
+i18n.configure({
+  locales: ['en', 'es'],
+  directory: path.join(__dirname, 'locales'),
+  defaultLocale: 'es',
+  directoryPermissions: '755',
+  autoReload: true,
+  updateFiles: true
+});
+
+app.use(i18n.init);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

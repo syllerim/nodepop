@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs');
+const i18n = require('i18n');
 
 /**
  * User Scheme
@@ -65,12 +66,12 @@ userSchema.statics.searchUser = (email) => {
  * Static function that receives the password of the user and the hashValue
  * and compare if the values match in order to return if is a valid user or not.
  */
-userSchema.statics.userValid = (password, hash) => {
+userSchema.statics.userValid = (password, hash, req) => {
   if (bcrypt.compareSync(password, hash)) {
     return true;
   }
-  const error = new Error('Password invalid');
-  error.errors = { msg: 'Make sure your passworkd is correct' };
+  const error = new Error('PASSWORD_INVALID');
+  error.errors = { msg: req.__('ERR_PASSWORD_INCORRECT') };
   throw error;
 };
 

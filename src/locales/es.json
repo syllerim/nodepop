@@ -1,0 +1,9 @@
+{
+	"ERR_EXPRESS_VALIDATOR_EMAIL_FORMAT_INCORRECT": "Email en formato incorrecto.  Verificalo.",
+	"ERR_EXPRESS_VALIDATOR_PASSWORD_FORMAT_INCORRECT": "La contraseña debe tener minimo seis caracteres y contener mínimo un numero.",
+	"ERR_INVALID_CREDENTIALS": "Credenciales invalidas.  Verifica los datos enviados.",
+	"ERR_PASSWORD_INCORRECT": "Password incorrecta. Verificalo.",
+	"ERR_INVALID_TOKEN": "Token Invalido.  Verificalo.",
+	"ERR_EXPRESS_VALIDATOR_INSERT_NAME": "Inserta un nombre.",
+	"ERR_NO_TOKEN_PROVIDED": "Envia el token para poder realizar peticiones."
+}

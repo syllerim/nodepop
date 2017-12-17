@@ -15,7 +15,8 @@ module.exports = {
         "no-use-before-define" : 0,
         "prefer-destructuring" : 0,
         "no-param-reassign": 0,
-        "no-undef" : 0
+        "no-undef" : 0,
+        "no-underscore-dangle": 0
     },
     "env": {
         "node": true,

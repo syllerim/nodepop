@@ -1,4 +1,3 @@
-const Mongoose = require('mongoose');
 
 function isAPI(req) {
   return req.originalUrl.indexOf('/apiv1/') === 0;
@@ -41,21 +40,18 @@ module.exports = configs => (err, req, res, next) => {
   if (err) {
     let status = err.status || 500;
 
-    if (err.errors) {
+    if (err.message === 'NO_TOKEN_PROVIDED' || err.message === 'INVALID_CREDENTIALS' || err.message === 'PASSWORD_INVALID' || err.message === 'TOKEN_ERROR') {
+      status = 401;
+      err.message = req.__(err.msg);
+    } else if (err.errors) {
       status = 400;
-
       if (err.array) {
         status = 422;
         const errInfo = err.array({ onlyFirstError: true })[0];
-        err.message = isAPI(req) ? { message: 'Not valid', errors: err.mapped() } : `Not valid - ${errInfo.param} ${errInfo.msg} `;
-      } else if (err.message === 'ValidationErrorFields') {
+        err.message = isAPI(req) ? { message: 'Not valid', errors: err.mapped() } : `Not valid - ${errInfo.param} ${req.__(errInfo.msg)} `;
+      } else if (err.message === 'VALIDATION_ERROR_FIELDS') {
         status = 422;
-        err.message = err.msg;
-      } else if (err.message === 'NoTokenProvided' || err.message === 'InvalidCredentials') {
-        status = 401;
-        err.message = err.msg;
-      } else if (err.message === 'TokenError') {
-        status = 401;
+        err.message = req.__(err.msg);
       }
     }
 

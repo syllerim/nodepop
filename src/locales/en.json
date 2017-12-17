@@ -1,0 +1,9 @@
+{
+	"ERR_EXPRESS_VALIDATOR_EMAIL_FORMAT_INCORRECT": "Email format is incorrect.",
+	"ERR_EXPRESS_VALIDATOR_PASSWORD_FORMAT_INCORRECT": "Please verify it.The passwords must be at least 6 chars long and contain one number.",
+	"ERR_INVALID_CREDENTIALS": "Invalid credentials provided, please verify the data you sent.",
+	"ERR_PASSWORD_INCORRECT": "Make sure your passworkd is correct.",
+	"ERR_INVALID_TOKEN": "Ivalid Token. Please provide a valid token.",
+	"ERR_EXPRESS_VALIDATOR_INSERT_NAME": "Please, provide a name.",
+	"ERR_NO_TOKEN_PROVIDED": "Please, provide your authorized token to make request."
+}

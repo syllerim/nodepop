@@ -20,10 +20,10 @@ const jwt = require('jsonwebtoken');
 router.post('/', [
   check('name.*.email.*.password').exists(),
   check('email')
-    .isEmail().withMessage('Format of the email in incorrect.  Please verify it.')
+    .isEmail().withMessage('ERR_EXPRESS_VALIDATOR_EMAIL_FORMAT_INCORRECT')
     .trim()
     .normalizeEmail(),
-  check('password', 'passwords must be at least 6 chars long and contain one number')
+  check('password', 'ERR_EXPRESS_VALIDATOR_PASSWORD_FORMAT_INCORRECT')
     .isLength({ min: 6 })
     .matches(/\d/),
 ], async (req, res, next) => {
@@ -38,8 +38,9 @@ router.post('/', [
       await User.saveUser(user);
       res.json({ user });
     } else {
-      const errorValidation = new Error('ValidationErrorFields');
+      const errorValidation = new Error('VALIDATION_ERROR_FIELDS');
       errorValidation.errors = errors.mapped();
+      errorValidation.msg = errors.array()[0].msg;
       throw errorValidation;
     }
   } catch (err) {
@@ -58,12 +59,12 @@ router.post('/', [
  *  */
 
 router.post('/authenticate', [
-  check('.email.*.password').exists(),
+  check('.email.*.password').exists().withMessage('ERR_EXPRESS_VALIDATOR_INSERT_NAME'),
   check('email')
-    .isEmail().withMessage('Format of the email in incorrect.  Please verify it.')
+    .isEmail().withMessage('ERR_EXPRESS_VALIDATOR_EMAIL_FORMAT_INCORRECT')
     .trim()
     .normalizeEmail(),
-  check('password', 'passwords must be at least 6 chars long and contain one number')
+  check('password', 'ERR_EXPRESS_VALIDATOR_PASSWORD_FORMAT_INCORRECT')
     .isLength({ min: 6 })
     .matches(/\d/),
 ], async (req, res, next) => {
@@ -71,7 +72,7 @@ router.post('/authenticate', [
     const errors = validationResult(req);
     if (errors.isEmpty()) {
       const user = await User.searchUser(req.body.email);
-      const userValid = await User.userValid(req.body.password, user.key);
+      const userValid = await User.userValid(req.body.password, user.key, req);
       if (userValid) {
         jwt.sign(
           { user_id: user.id },
@@ -84,15 +85,16 @@ router.post('/authenticate', [
             res.json({ success: true, token });
           }
         );
-        jwt;
       } else {
-        const error = new Error('InvalidCredentials');
-        error.errors = { msg: 'Invalid credentials provided, please verify the data you sent.' };
+        const error = new Error('INVALID_CREDENTIALS');
+        errorValidation.errors = errors.mapped();
+        errorValidation.msg = errors.array()[0].msg;
         throw error;
       }
     }
-    const errorValidation = new Error('ValidationErrorFields');
+    const errorValidation = new Error('VALIDATION_ERROR_FIELDS');
     errorValidation.errors = errors.mapped();
+    errorValidation.msg = errors.array()[0].msg;
     throw errorValidation;
   } catch (err) {
     next(err);
