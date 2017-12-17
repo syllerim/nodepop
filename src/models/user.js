@@ -49,6 +49,32 @@ userSchema.statics.saveUser = (user) => {
 };
 
 /**
+ * User Authentication
+ * @param email
+ * Static function that returns an user searched by email
+ */
+userSchema.statics.searchUser = (email) => {
+  const query = User.findOne({ email });
+  return query.exec();
+};
+
+/**
+ * User isValidUser
+ * @param password
+ * @param hash
+ * Static function that receives the password of the user and the hashValue
+ * and compare if the values match in order to return if is a valid user or not.
+ */
+userSchema.statics.userValid = (password, hash) => {
+  if (bcrypt.compareSync(password, hash)) {
+    return true;
+  }
+  const error = new Error('Password invalid');
+  error.errors = { msg: 'Make sure your passworkd is correct' };
+  throw error;
+};
+
+/**
  * User - Mongoose model
  * Creates the instas of the User model to be exported as middleware
  */
