@@ -24,7 +24,7 @@ JWT_EXPIRES_IN=Xh
 
 2.  For testing the installation of the database run
 
-- `npm run install-db`
+- `sudo npm run install-db`
 
 ### Testing
 - `npm lint` – Add the name of the file .js to verify
@@ -34,4 +34,4 @@ JWT_EXPIRES_IN=Xh
 - `mocha test/instance`
 
 ### Start
-- `npm start` – Start the server by default on development env.
+- `sudo npm start` – Start the server by default on development env.
