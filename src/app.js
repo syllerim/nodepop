@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routers to endpoints
 app.use('/', index);
 app.use('/apiv1/anuncios', require('./routes/apiv1/items'));
-app.use('/apiv1/tags', require('./routes/apiv1/items'));
+app.use('/apiv1/anuncios', require('./routes/apiv1/items'));
 app.use('/apiv1/user', require('./routes/apiv1/users'));
 
 // handle Erros
