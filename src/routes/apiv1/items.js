@@ -4,6 +4,9 @@ const express = require('express');
 
 const router = express.Router();
 const Item = require('./../../models/item');
+const jwtAuth = require('../../lib/jwtAuth');
+
+router.use(jwtAuth());
 
 router.get('/', async (req, res, next) => {
   try {

@@ -51,6 +51,11 @@ module.exports = configs => (err, req, res, next) => {
       } else if (err.message === 'ValidationErrorFields') {
         status = 422;
         err.message = err.msg;
+      } else if (err.message === 'NoTokenProvided' || err.message === 'InvalidCredentials') {
+        status = 401;
+        err.message = err.msg;
+      } else if (err.message === 'TokenError') {
+        status = 401;
       }
     }
 
