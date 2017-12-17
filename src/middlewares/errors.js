@@ -25,11 +25,9 @@ function setError5xx(err, res, http) {
 function setError4xx(err, res) {
   let data = {};
 
-  if (err instanceof Sequelize.ValidationError) {
+  if (err.errors) {
     data = err.errors;
   }
-
-  res.status(err.status);
 
   if (isAPI) {
     res.json({ success: 'false', data, message: err.message });
@@ -45,10 +43,14 @@ module.exports = configs => (err, req, res, next) => {
 
     if (err.errors) {
       status = 400;
+
       if (err.array) {
         status = 422;
         const errInfo = err.array({ onlyFirstError: true })[0];
         err.message = isAPI(req) ? { message: 'Not valid', errors: err.mapped() } : `Not valid - ${errInfo.param} ${errInfo.msg} `;
+      } else if (err.message === 'ValidationErrorFields') {
+        status = 422;
+        err.message = err.msg;
       }
     }
 
