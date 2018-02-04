@@ -7,9 +7,8 @@ This is the software that is executed on server giving services for an app that 
 
 2.  [MongoDb] (https://www.mongodb.com/dr/fastdl.mongodb.org/osx/mongodb-osx-ssl-x86_64-3.4.10.tgz/download) > 3.4.10
 
-## Commands
 
-### Setup Locally with https
+## Setup Locally with https
 1.  Please provide a .env file with the definition of the next variables
 
 PORT=443
@@ -36,10 +35,8 @@ JWT_EXPIRES_IN=Xh
 ### Start
 - `sudo npm start` – Start the server by default on development env.
 
-### Production Usage
+## Production Usage 
 The Nodepop Application is hosted on the server `nodepop.syllerim.com`
-
-Find in the next postman collection the list of endpoints ready for usage.
 
 #### Endpoints
 
@@ -49,8 +46,12 @@ Find in the next postman collection the list of endpoints ready for usage.
 - Get Tags
 - Get Items filtered
 
+Find in the next postman collection the list of endpoints ready for usage.
+
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f4e2adadc30987f9518e)
 
 
 #### Static files
-An example of static files can be found on www.syllerim.com
+Static files are server under the paht:
+
+`https://nodepop.syllerim.com/images/api.png`
