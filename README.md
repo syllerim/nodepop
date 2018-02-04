@@ -36,13 +36,13 @@ JWT_EXPIRES_IN=Xh
 - `sudo npm start` – Start the server by default on development env.
 
 ## Production Usage 
-The Nodepop Application is hosted on the subdomain `nodepop.syllerim.com`, under the domain:
+The Nodepop Application is hosted on the subdomain `https://nodepop.syllerim.com`, under the domain:
 
-[13.59.209.185](13.59.209.185)
+[https://13.59.209.185](https://13.59.209.185)
 
-[syllerim.com](syllerim.com)
+[https://syllerim.com](https://syllerim.com)
 
-[www.syllerim.com](www.syllerim.com)
+[https://www.syllerim.com](https://www.syllerim.com)
 
 
 #### Endpoints
