@@ -36,9 +36,17 @@ JWT_EXPIRES_IN=Xh
 - `sudo npm start` – Start the server by default on development env.
 
 ## Production Usage 
-The Nodepop Application is hosted on the server `nodepop.syllerim.com`
+The Nodepop Application is hosted on the subdomain `nodepop.syllerim.com`, under the domain:
+
+`IP: 13.59.209.185`
+
+`syllerim.com`
+
+`www.syllerim.com`
+
 
 #### Endpoints
+This is the list of endpoints the user have access:
 
 - Create User
 - Autenticate user
@@ -52,6 +60,25 @@ Find in the next postman collection the list of endpoints ready for usage.
 
 
 #### Static files
-Static files are server under the paht:
+Static files served on the Nodepop Application are server under the path:
+`<nodepop>/images/fileName.png`
 
-`https://nodepop.syllerim.com/images/api.png`
+Some examples of static files:
+
+[<img src="https://nodepop.syllerim.com/images/api.png" height="72" width="72">](https://nodepop.syllerim.com/images/api.png)
+
+
+[<img src="https://nodepop.syllerim.com/images/iphone3GS.png" height="72" width="72">](https://nodepop.syllerim.com/images/iphone3GS.png) 
+
+[<img src="https://nodepop.syllerim.com/images/bike.jpg" height="72" width="72">](https://nodepop.syllerim.com/images/bike.jpg)
+
+[<img src="https://nodepop.syllerim.com/images/iphoneX.png" height="72" width="72">](https://nodepop.syllerim.com/images/iphoneX.png) 
+
+[<img src="https://nodepop.syllerim.com/images/appleTV.png" height="72" width="72">](https://nodepop.syllerim.com/images/appleTV.png) 
+
+
+
+
+
+
+
