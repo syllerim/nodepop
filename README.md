@@ -38,11 +38,11 @@ JWT_EXPIRES_IN=Xh
 ## Production Usage 
 The Nodepop Application is hosted on the subdomain `nodepop.syllerim.com`, under the domain:
 
-`IP: 13.59.209.185`
+[13.59.209.185](13.59.209.185)
 
-`syllerim.com`
+[syllerim.com](syllerim.com)
 
-`www.syllerim.com`
+[www.syllerim.com](www.syllerim.com)
 
 
 #### Endpoints
