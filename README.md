@@ -9,7 +9,7 @@ This is the software that is executed on server giving services for an app that 
 
 ## Commands
 
-### Setup
+### Setup Locally with https
 1.  Please provide a .env file with the definition of the next variables
 
 PORT=443
@@ -35,3 +35,22 @@ JWT_EXPIRES_IN=Xh
 
 ### Start
 - `sudo npm start` – Start the server by default on development env.
+
+### Production Usage
+The Nodepop Application is hosted on the server `nodepop.syllerim.com`
+
+Find in the next postman collection the list of endpoints ready for usage.
+
+####Endpoints
+
+- Create User
+- Autenticate user
+- Get All Items
+- Get Tags
+- Get Items filtered
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f4e2adadc30987f9518e)
+
+
+####Static files
+An example of static files can be found on www.syllerim.com
